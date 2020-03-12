@@ -5,3 +5,12 @@ body {
 input {
   background-color: #b14943;
 }
+input:focus {
+  background-color: #76C3BD;
+}
+.button {
+  background-color: #76C3BD;
+}
+.button:hover {
+  background-color: #69B1A9;
+}
