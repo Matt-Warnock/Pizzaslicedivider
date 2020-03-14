@@ -4,18 +4,29 @@ body {
   color: #fff;
   font-size: 2.5em;
 }
-input {
-  background-color: #b14943;
+.input {
+  position: relative;
 }
+input {
+  background-color: #E96D65;
+  border: none;
+  border-bottom: 1px dotted #b14943;
+  color: #b14943;
+}
+
 input:focus {
   background-color: #76C3BD;
 }
 .button {
   background-color: #76C3BD;
+  color: #fff;
 }
-.button:before {
+.button::before {
   position: absolute;
-  content: url(images/right-arrow.png);
+  display: block;
+  content: "➡️");
+  width: 100px;
+  height: 100px;
 }
 .button:hover {
   background-color: #69B1A9;
