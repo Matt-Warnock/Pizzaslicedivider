@@ -5,9 +5,6 @@ body {
   color: #fff;
   font-size: 2.5em;
 }
-.input {
-  position: relative;
-}
 input {
   background-color: #E96D65;
   border: none;
@@ -24,7 +21,10 @@ input[type=number]:focus {
   transition: 0.5s;
 }
 .button {
+  position: relative;
   background-color: #76C3BD;
+  border: none;
+  margin-left: 55px;
   width: 200px;
   height: 50px;
   font-size: 0.5em;
@@ -32,11 +32,14 @@ input[type=number]:focus {
 }
 .button::before {
   position: absolute;
-  display: block;
-  content: "➡️");
-  width: 100px;
-  height: 100px;
-}
+  display: inline-block;
+  background-color: #76C3BD;
+  content: "➡️";
+  font-size: 3em;
+  height: 50px;
+  left: -60px;
+  top: 0;
+  }
 .button:hover {
   background-color: #69B1A9;
 }
