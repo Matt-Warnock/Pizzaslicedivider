@@ -32,7 +32,8 @@ input:focus {
 }
 .button::before {
   position: absolute;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   background-color: #76C3BD;
   content: "➡️";
   font-size: 3em;
@@ -40,6 +41,6 @@ input:focus {
   left: -60px;
   top: 0;
   }
-.button:hover {
+.button:hover, .button:hover::before {
   background-color: #69B1A9;
 }
