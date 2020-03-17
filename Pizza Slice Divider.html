@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Pizza Slice Divider</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-<h1>Pizza Slice Divider</h1>
-<h2>Lets work it out and be fair</h2>
-<script type="text/javascript" src="Pizza Divider.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Pizza Slice Divider</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="inputs">
+    <div>
+      <label for="people">How many people?</label>
+      <input type="number" name="people" id="people" value="2" min="2" max="100" required>
+    </div>
+    <div>
+      <label for="pizzas">How many pizzas do you have?</label>
+      <input type="number" name="pizzas" id="pizzas" value="1" min="1" max="10" required>
+    </div>
+    <div>
+      <label for="slices">How many slices per pizza?</label>
+      <input type="number" name="slices" id="slices" value="8" min="4" max="12" required>
+    </div>
+    <button id="submit" class="button">CALCULATE!</button>
+  </div>
+  <p id="answer"></p>
+
+  <script type="text/javascript" src="Pizza Divider.js"></script>
+</body>
+
 </html>
