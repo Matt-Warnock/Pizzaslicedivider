@@ -12,7 +12,7 @@ input {
   color: #b14943;
 }
 
-input[type=number]:focus {
+input:focus {
   background-color: #76C3BD;
   border: none;
   outline-style: none;
