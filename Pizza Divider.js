@@ -20,38 +20,41 @@
 
 (function () {
 
-let userInterface = {
-  submitButton: document.getElementById('submit'),
-  people: document.getElementById('people'),
-  pizza: document.getElementById('pizzas'),
-  slice: document.getElementById('slices'),
-  displayTarget: document.getElementById('answer'),
-  clickStart () {
-    this.submitButton.addEventListener('click', event => {
+  let userInterface = {
+    _submitButton: document.getElementById('submit'),
+    people: document.getElementById('people'),
+    pizza: document.getElementById('pizzas'),
+    slice: document.getElementById('slices'),
+    _displayTarget: document.getElementById('answer'),
+    clickStart () {
+      this._submitButton.addEventListener('click', event => {
 
-      pizzaDivider.divideSlices(this.people.value, this.pizza.value, this.slice.value);
-      this.displayResults(pizzaDivider.sharedSlices, pizzaDivider.reminderSlices);
-      
-    });
-  },
-  displayResults (sliceEach, sliceLeft) {
-    this.displayTarget.textContent = `You have ${sliceEach} each and ${sliceLeft} left to fight over!`;
-  }
-};
+        pizzaDivider._divideSlices(this.people.value, this.pizza.value, this.slice.value);
+        this.displayResults(pizzaDivider.sharedSlices, pizzaDivider.reminderSlices);
+
+      });
+    },
+
+    displayResults (sliceEach, sliceLeft) {
+      this._displayTarget.textContent = `You have ${sliceEach} each and ${sliceLeft} left to fight over!`;
+    }
+  };
 
 
-let pizzaDivider = {
+  let pizzaDivider = {
     sharedSlices: 0,
     reminderSlices: 0,
-    divideSlices (peopleNumber, pizzaNumber, sliceNumber) {
+    _divideSlices (peopleNumber, pizzaNumber, sliceNumber) {
+
       let pizzaSlices = sliceNumber * pizzaNumber,
       fullTotal = pizzaSlices / peopleNumber;
+
       this.sharedSlices = Math.floor(fullTotal);
       let sharedTotal = this.sharedSlices * peopleNumber;
       this.reminderSlices = pizzaSlices - sharedTotal;
     },
   };
 
-userInterface.clickStart();
+  userInterface.clickStart();
 
 })();
