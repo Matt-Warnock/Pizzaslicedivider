@@ -21,37 +21,46 @@
 (function () {
 
   let userInterface = {
-    _submitButton: document.getElementById('submit'),
-    people: document.getElementById('people'),
-    pizza: document.getElementById('pizzas'),
-    slice: document.getElementById('slices'),
-    _displayTarget: document.getElementById('answer'),
+    submitButton: document.getElementById('submit'),
+    _people: document.getElementById('people'),
+    _pizza: document.getElementById('pizzas'),
+    _slice: document.getElementById('slices'),
+    displayTarget: document.getElementById('answer'),
+    get people () {
+      return this._people.value;
+    },
+    get pizza () {
+      return this._pizza.value;
+    },
+    get slice () {
+      return this._slice.value;
+    },
     clickStart () {
-      this._submitButton.addEventListener('click', event => {
+      this.submitButton.addEventListener('click', event => {
 
-        pizzaDivider._divideSlices(this.people.value, this.pizza.value, this.slice.value);
-        this.displayResults(pizzaDivider.sharedSlices, pizzaDivider.reminderSlices);
+        pizzaDivider.divideSlices(this.people, this.pizza, this.slice);
+        this._displayResults(pizzaDivider._sharedSlices, pizzaDivider._reminderSlices);
 
       });
     },
 
-    displayResults (sliceEach, sliceLeft) {
-      this._displayTarget.textContent = `You have ${sliceEach} each and ${sliceLeft} left to fight over!`;
+    _displayResults (sliceEach, sliceLeft) {
+      this.displayTarget.textContent = `You have ${sliceEach} each and ${sliceLeft} left to fight over!`;
     }
   };
 
 
   let pizzaDivider = {
-    sharedSlices: 0,
-    reminderSlices: 0,
-    _divideSlices (peopleNumber, pizzaNumber, sliceNumber) {
+    _sharedSlices: 0,
+    _reminderSlices: 0,
+    divideSlices (peopleNumber, pizzaNumber, sliceNumber) {
 
       let pizzaSlices = sliceNumber * pizzaNumber,
       fullTotal = pizzaSlices / peopleNumber;
 
-      this.sharedSlices = Math.floor(fullTotal);
-      let sharedTotal = this.sharedSlices * peopleNumber;
-      this.reminderSlices = pizzaSlices - sharedTotal;
+      this._sharedSlices = Math.floor(fullTotal);
+      let sharedTotal = this._sharedSlices * peopleNumber;
+      this._reminderSlices = pizzaSlices - sharedTotal;
     },
   };
 
