@@ -1,12 +1,12 @@
 (function () {
   class UserInterface {
-    constructor(peopleId, pizzaId, sliceId ,buttonId, answerId) {
-    this._people = document.getElementById(peopleId);
-    this._pizza = document.getElementById(pizzaId);
-    this._slice = document.getElementById(sliceId);
-    this.submitButton = document.getElementById(buttonId);
-    this.displayTarget = document.getElementById(answerId);
-  }
+    constructor(ids) {
+      this._people = document.getElementById(ids.people);
+      this._pizza = document.getElementById(ids.pizza);
+      this._slice = document.getElementById(ids.slices);
+      this.submitButton = document.getElementById(ids.button);
+      this.displayTarget = document.getElementById(ids.display);
+    }
     get people () {
       return this._people.value;
     }
@@ -32,9 +32,9 @@
 
   class PizzaCalculator {
     constructor() {
-    this._sharedSlices = 0;
-    this._reminderSlices = 0;
-  }
+      this._sharedSlices = 0;
+      this._reminderSlices = 0;
+    }
     divideSlices (peopleNumber, pizzaNumber, sliceNumber) {
 
       let pizzaSlices = sliceNumber * pizzaNumber,
@@ -46,8 +46,16 @@
     }
   }
 
-const pizzaDivider = new PizzaCalculator();
-const pizzaUi = new UserInterface('people', 'pizzas', 'slices', 'submit', 'answer');
-pizzaUi.clickStart();
+  var ids = {
+    people: 'people',
+    slices: 'slices',
+    pizza: 'pizzas',
+    button: 'submit',
+    display: 'answer'
+  };
+
+  const pizzaDivider = new PizzaCalculator();
+  const pizzaUi = new UserInterface(ids);
+  pizzaUi.clickStart();
 
 })();
