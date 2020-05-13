@@ -1,11 +1,11 @@
 (function () {
   class UserInterface {
-    constructor() {
-    this.submitButton = document.getElementById('submit');
-    this._people = document.getElementById('people');
-    this._pizza = document.getElementById('pizzas');
-    this._slice = document.getElementById('slices');
-    this.displayTarget = document.getElementById('answer');
+    constructor(peopleId, pizzaId, sliceId ,buttonId, answerId) {
+    this._people = document.getElementById(peopleId);
+    this._pizza = document.getElementById(pizzaId);
+    this._slice = document.getElementById(sliceId);
+    this.submitButton = document.getElementById(buttonId);
+    this.displayTarget = document.getElementById(answerId);
   }
     get people () {
       return this._people.value;
@@ -47,7 +47,7 @@
   }
 
 const pizzaDivider = new PizzaCalculator();
-const pizzaUi = new UserInterface();
+const pizzaUi = new UserInterface('people', 'pizzas', 'slices', 'submit', 'answer');
 pizzaUi.clickStart();
 
 })();
